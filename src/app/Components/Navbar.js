@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -30,7 +30,31 @@ export default function Navbar() {
       <div className="hidden md:flex items-center gap-6 ml-7">
         <Link href="/Arcs" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
-           Arcs
+            Characters
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            Characters
+          </span>
+        </Link>
+        <Link href="#" className="relative overflow-hidden h-6 group">
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            Devil Fruits
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            Devil Fruits
+          </span>
+        </Link>
+        <Link href="#" className="relative overflow-hidden h-6 group">
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            Bounties
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            Bounties
+          </span>
+        </Link>
+        <Link href="#" className="relative overflow-hidden h-6 group">
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            Arcs
           </span>
           <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
             Arcs
@@ -38,26 +62,42 @@ export default function Navbar() {
         </Link>
         <Link href="#" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
-            Stories
+            Organisations
           </span>
           <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-            Stories
+            Organisations
           </span>
         </Link>
         <Link href="#" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
-            Pricing
+            Movies
           </span>
           <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-            Pricing
+            Movies
           </span>
         </Link>
         <Link href="#" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
-            Docs
+            Timeline
           </span>
           <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-            Docs
+            Timeline
+          </span>
+        </Link>
+        <Link href="#" className="relative overflow-hidden h-6 group">
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            Quotes
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            Quotes
+          </span>
+        </Link>
+        <Link href="#" className="relative overflow-hidden h-6 group">
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            Trivia
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            Trivia
           </span>
         </Link>
       </div>
@@ -67,7 +107,7 @@ export default function Navbar() {
           Contact
         </button>
         <button className="bg-white hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 transition duration-300">
-          Get Started
+          Be a nakama
         </button>
       </div>
 
@@ -91,7 +131,7 @@ export default function Navbar() {
 
       <div
         className={`absolute ${
-          isMobileMenuOpen ? 'flex' : 'hidden'
+          isMobileMenuOpen ? "flex" : "hidden"
         } top-48 text-base left-0 bg-black w-full flex-col items-center gap-4 py-4`}
       >
         <Link className="hover:text-indigo-600" href="#">
