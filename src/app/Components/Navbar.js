@@ -28,47 +28,50 @@ export default function Navbar() {
       </Link>
 
       <div className="hidden md:flex items-center gap-6 ml-7">
+        <Link href="/Characters" className="relative overflow-hidden h-6 group">
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            Characters
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            Characters
+          </span>
+        </Link>
+        <Link
+          href="/DevilFruits"
+          className="relative overflow-hidden h-6 group"
+        >
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            Devil Fruits
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            Devil Fruits
+          </span>
+        </Link>
+        <Link href="/Bounties" className="relative overflow-hidden h-6 group">
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            Bounties
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            Bounties
+          </span>
+        </Link>
         <Link href="/Arcs" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
-            Characters
-          </span>
-          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-            Characters
-          </span>
-        </Link>
-        <Link href="#" className="relative overflow-hidden h-6 group">
-          <span className="block group-hover:-translate-y-full transition-transform duration-300">
-            Devil Fruits
-          </span>
-          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-            Devil Fruits
-          </span>
-        </Link>
-        <Link href="#" className="relative overflow-hidden h-6 group">
-          <span className="block group-hover:-translate-y-full transition-transform duration-300">
-            Bounties
-          </span>
-          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-            Bounties
-          </span>
-        </Link>
-        <Link href="#" className="relative overflow-hidden h-6 group">
-          <span className="block group-hover:-translate-y-full transition-transform duration-300">
             Arcs
           </span>
           <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
             Arcs
           </span>
         </Link>
-        <Link href="#" className="relative overflow-hidden h-6 group">
+        <Link href="/Crews" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
             Organisations
           </span>
           <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
-            Organisations
+            Crews
           </span>
         </Link>
-        <Link href="#" className="relative overflow-hidden h-6 group">
+        <Link href="/movies" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
             Movies
           </span>
@@ -76,7 +79,7 @@ export default function Navbar() {
             Movies
           </span>
         </Link>
-        <Link href="#" className="relative overflow-hidden h-6 group">
+        <Link href="/Timeline" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
             Timeline
           </span>
@@ -84,7 +87,7 @@ export default function Navbar() {
             Timeline
           </span>
         </Link>
-        <Link href="#" className="relative overflow-hidden h-6 group">
+        <Link href="/Quotes" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
             Quotes
           </span>
@@ -92,7 +95,7 @@ export default function Navbar() {
             Quotes
           </span>
         </Link>
-        <Link href="#" className="relative overflow-hidden h-6 group">
+        <Link href="/Trivia" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
             Trivia
           </span>
@@ -106,9 +109,11 @@ export default function Navbar() {
         <button className="border border-slate-600 hover:bg-slate-800 px-4 py-2 rounded-full text-sm font-medium transition">
           Contact
         </button>
-        <button className="bg-white hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 transition duration-300">
-          Be a nakama
-        </button>
+        <Link href="/Register">
+          <button className="bg-white hover:shadow-[0px_0px_30px_14px] shadow-[0px_0px_30px_7px] hover:shadow-white/50 shadow-white/50 text-black px-4 py-2 rounded-full text-sm font-medium hover:bg-slate-100 transition duration-300">
+            Be a nakama
+          </button>
+        </Link>
       </div>
 
       <button
