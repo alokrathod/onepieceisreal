@@ -15,5 +15,9 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4"
-  }
+  },
+  "description": "one piece is real",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
