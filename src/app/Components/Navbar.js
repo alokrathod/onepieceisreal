@@ -92,6 +92,14 @@ export default function Navbar() {
             Trivia
           </span>
         </Link>
+        <Link href="/WorldMap" className="relative overflow-hidden h-6 group">
+          <span className="block group-hover:-translate-y-full transition-transform duration-300">
+            World map
+          </span>
+          <span className="block absolute top-full left-0 group-hover:translate-y-[-100%] transition-transform duration-300">
+            World map
+          </span>
+        </Link>
       </div>
 
       <div className="hidden ml-14 md:flex items-center gap-4">
