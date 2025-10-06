@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../../../assets/one_piece_logo.png";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -11,23 +13,10 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex items-center border mx-4 max-md:w-full max-md:justify-between border-slate-700 px-6 py-4 rounded-full text-white text-sm">
-      <Link href="https://prebuiltui.com">
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 32 32"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="4.706" cy="16" r="4.706" fill="#D9D9D9" />
-          <circle cx="16.001" cy="4.706" r="4.706" fill="#D9D9D9" />
-          <circle cx="16.001" cy="27.294" r="4.706" fill="#D9D9D9" />
-          <circle cx="27.294" cy="16" r="4.706" fill="#D9D9D9" />
-        </svg>
-      </Link>
+    <nav className="flex items-center justify-between border mx-4 max-md:w-full max-md:w-full border-slate-700 px-6 py-4 rounded-full text-white text-sm">
+      <Image src={logo} alt="Logo" width={100} height={40} />
 
-      <div className="hidden md:flex items-center gap-6 ml-7">
+      <div className="hidden md:flex flex-1 items-center justify-center gap-6 ml-7">
         <Link href="/Characters" className="relative overflow-hidden h-6 group">
           <span className="block group-hover:-translate-y-full transition-transform duration-300">
             Characters
