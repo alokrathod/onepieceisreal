@@ -5,6 +5,7 @@ import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import logo from "../../../assets/one_piece_logo.png";
 import Link from "next/link";
+import axios from "axios";
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -24,16 +25,30 @@ export default function RegisterPage() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (formData.password !== formData.confirmPassword) {
+    try {
+      if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
     console.log("Registration data:", formData);
-    alert(`Account created for: ${formData.username}`);
+    
+    const { data } = await axios.post('http://localhost:3000/api/register', {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password
+      });
+      if (data.success) {
+        alert(`Account created for: ${formData.username}`);
+      } else {
+        alert(data.message || 'Registration failed. Please try again.');
+      }
+      
+    } catch (error) {
+      console.error('Registration error:', error.response?.data || error.message);
+    }
   };
 
   return (
@@ -60,7 +75,7 @@ export default function RegisterPage() {
               </h1>
             </div>
             <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-              Create an Account ✨
+              Be a nakama
             </h2>
             <p className="text-gray-500 text-sm">
               Fill in your details to get started on your adventure!
