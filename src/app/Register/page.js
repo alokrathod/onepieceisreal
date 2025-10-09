@@ -6,8 +6,11 @@ import Image from "next/image";
 import logo from "../../../assets/one_piece_logo.png";
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
+  const router = useRouter();
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -29,25 +32,28 @@ export default function RegisterPage() {
     e.preventDefault();
     try {
       if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
+        alert("Passwords do not match!");
+        return;
+      }
 
-    console.log("Registration data:", formData);
-    
-    const { data } = await axios.post('http://localhost:3000/api/register', {
+      console.log("Registration data:", formData);
+
+      const { data } = await axios.post("http://localhost:3000/api/register", {
         username: formData.username,
         email: formData.email,
-        password: formData.password
+        password: formData.password,
       });
       if (data.success) {
         alert(`Account created for: ${formData.username}`);
+        router.push("/");
       } else {
-        alert(data.message || 'Registration failed. Please try again.');
+        alert(data.message || "Registration failed. Please try again.");
       }
-      
     } catch (error) {
-      console.error('Registration error:', error.response?.data || error.message);
+      console.error(
+        "Registration error:",
+        error.response?.data || error.message
+      );
     }
   };
 

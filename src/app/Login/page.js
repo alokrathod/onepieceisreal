@@ -5,17 +5,46 @@ import { Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import logo from "../../../assets/one_piece_logo.png";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const router = useRouter();
+
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    rememberMe: false,
+  });
+
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login attempt:", { email, password, rememberMe });
-    alert(`Login attempted with:\nEmail: ${email}\nRemember Me: ${rememberMe}`);
+    try {
+      console.log("login data:", formData);
+
+      const { data } = await axios.post("http://localhost:3000/api/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+      if (data.success) {
+        alert(`Yokoso nakama`);
+        router.push("/");
+      } else {
+        alert(data.message || "Login failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Login error:", error.response?.data || error.message);
+    }
   };
 
   const handleSocialLogin = (provider) => {
@@ -42,13 +71,12 @@ export default function LoginPage() {
           {/* Logo and Title */}
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">
-                S
-              </div>
-              <h1 className="text-2xl font-bold text-gray-800">sneat</h1>
+              <h1 className="text-2xl font-bold text-gray-800">
+                One Piece is real
+              </h1>
             </div>
             <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-              Welcome to Sneat! 👋
+              Yokoso nakama
             </h2>
             <p className="text-gray-500 text-sm">
               Please sign-in to your account and start the adventure
@@ -67,8 +95,8 @@ export default function LoginPage() {
               <input
                 type="email"
                 id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
                 placeholder="Enter your email"
               />
@@ -85,8 +113,8 @@ export default function LoginPage() {
                 <input
                   type={showPassword ? "text" : "password"}
                   id="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={formData.password}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition pr-10"
                   placeholder="Enter your password"
                 />
@@ -105,7 +133,7 @@ export default function LoginPage() {
                 <input
                   type="checkbox"
                   checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
+                  onChange={handleChange}
                   className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                 />
                 <span className="ml-2 text-sm text-gray-600">Remember Me</span>
