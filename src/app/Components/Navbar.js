@@ -14,7 +14,9 @@ export default function Navbar() {
 
   return (
     <nav className="flex items-center justify-between border mx-4 max-md:w-full max-md:w-full border-slate-700 px-6 py-4 rounded-full text-white text-sm">
-      <Image src={logo} alt="Logo" width={100} height={40} />
+      <Link href="/">
+        <Image src={logo} alt="Logo" width={100} height={40} />
+      </Link>
 
       <div className="hidden md:flex flex-1 items-center justify-center gap-6 ml-7">
         <Link href="/Characters" className="relative overflow-hidden h-6 group">
